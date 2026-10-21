@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEWWAV WRLD | Championnat New Wave</title><meta name="theme-color" content="#000">
+<meta name="description" content="Vote pour ton artiste préféré dans le Championnat New Wave.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,800;1,900&display=swap">
+<style>
+:root{color-scheme:dark;--n:#000;--g:#1b1b1b;--g2:#6e6e6e;--r:#d4001a;--b:#fff;--f:"Montserrat","Arial Black",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--n)}*{box-sizing:border-box;margin:0}
+body{min-height:100vh;color:var(--b);font:500 15px/1.5 var(--f);
+background:radial-gradient(34vmax 22vmax at 0% 8%,var(--g) 60%,transparent 61%),radial-gradient(30vmax 26vmax at 104% 30%,var(--g) 60%,transparent 61%),
+radial-gradient(36vmax 24vmax at 10% 70%,var(--g) 60%,transparent 61%),radial-gradient(30vmax 22vmax at 100% 96%,var(--g) 60%,transparent 61%),var(--n)}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.top,main,.foot{max-width:640px;margin:0 auto;padding-left:18px;padding-right:18px}
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:4px}
+.top img{width:42px;height:42px;border-radius:50%}
+.tabs{display:flex;gap:6px}.tabs button{min-height:44px;padding:0 16px;border-radius:6px;border:1px solid #444;background:none;color:#ccc;font:800 13px/1 var(--f);font-style:italic;text-transform:uppercase;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
+h1{font:900 clamp(30px,10vw,52px)/.95 var(--f);font-style:italic;text-transform:uppercase;text-align:center;padding:20px 0 4px}
+h1 small{display:block;font-weight:800;font-size:.62em}
+.sub{text-align:center;color:#bbb;margin-bottom:8px}
+.v{margin:26px 0 52px}
+.ban{display:block;width:max-content;margin:0 auto;background:var(--r);padding:6px 22px;font:900 clamp(20px,6.4vw,30px)/1.1 var(--f);font-style:italic;text-transform:uppercase}
+.vsw{text-align:center;font:900 clamp(72px,24vw,120px)/.9 var(--f);font-style:italic;margin:4px 0 14px}
+.t{display:flex;justify-content:space-between;padding:0 4px 8px;font-size:13px;color:#bbb}
+.arena{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.side{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ph{position:relative;aspect-ratio:300/263;background:#111;overflow:hidden;transition:transform .2s}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph.burst{animation:pop .5s}@keyframes pop{40%{transform:scale(1.04)}}
+.pl{position:relative;z-index:2;margin:-16px -6px 0;transform:rotate(-3deg);background:var(--g2);padding:10px 8px;text-align:center;font:900 clamp(14px,4.4vw,24px)/1.1 var(--f);font-style:italic;text-transform:uppercase;box-shadow:0 6px 18px rgba(0,0,0,.5);overflow-wrap:anywhere}
+.side:nth-child(2) .pl{transform:rotate(-2deg)}
+.inf{align-self:center;min-height:44px;padding:0 6px;background:none;border:0;border-bottom:1px solid #777;color:#ccc;font:700 12px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;margin-top:6px}
+.vote{min-height:54px;border:0;border-radius:6px;background:#fff;color:#000;font:900 18px/1 var(--f);font-style:italic;text-transform:uppercase;cursor:pointer;transition:transform .15s,opacity .2s}
+.vote:not([disabled]):active{transform:scale(.97)}.vote[disabled]{cursor:default}
+.vote.on{background:var(--r);color:#fff}.vote.off{opacity:.35;background:#333;color:#aaa}
+.res{grid-column:1/-1;display:grid;gap:8px;margin-top:10px}.res[hidden]{display:none}
+.bar{display:flex;height:16px;background:#222}.bar i{width:50%;transition:width .9s cubic-bezier(.2,.8,.2,1)}.bar i:first-child{background:#fff}.bar i:last-child{background:var(--g2)}
+.fig{display:flex;justify-content:space-between;font:900 28px/1 var(--f);font-style:italic}.fig small{display:block;font:500 12px/1.4 var(--f);color:#bbb;font-style:normal}.fig div:last-child{text-align:right}
+.ok{text-align:center;font-size:14px;color:#bbb}
+.br{display:grid;grid-template-columns:1.15fr 1fr .8fr;gap:10px;margin-top:20px;align-items:center}
+.br h3{font:900 12px/1 var(--f);font-style:italic;text-transform:uppercase;text-align:center;margin-bottom:10px}
+.col{display:grid;gap:10px}.m{background:#111;border:1px solid #333;font:800 11px/1.2 var(--f);font-style:italic;text-transform:uppercase}
+.m div{padding:8px}.m div+div{border-top:1px solid #333}.m .w{background:#fff;color:#000}.m .l{color:#777;text-decoration:line-through}.m .q{text-align:center;font-size:18px;background:#2a2a2a}
+.foot{padding-top:10px;padding-bottom:44px;text-align:center;font-size:12px;color:#888}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:20;transform:translate(-50%,30px);opacity:0;pointer-events:none;padding:12px 18px;background:#fff;color:#000;font-weight:700;transition:.25s;max-width:90vw}
+.toast.show{transform:translate(-50%,0);opacity:1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<header class="top"><img src="/img/logo.jpg" alt="NEWWAV WRLD" width="42" height="42"></header>
+<main><h1>Championnat<small>New Wave</small></h1><p class="sub" id="sub"></p><div id="vs"></div></main>
+<footer class="foot">Un vote par versus. NEWAVWRLD</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js"></script></body></html>

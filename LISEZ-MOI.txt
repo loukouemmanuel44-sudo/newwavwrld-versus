@@ -1,0 +1,6 @@
+NEWWAV WRLD - Versus (etape 3)
+public/      -> le site (HTML, CSS, JS, photos)
+functions/   -> le serveur des votes (Cloudflare Pages Functions)
+schema.sql   -> la base de donnees (a coller dans la console D1)
+Cloudflare Pages : dossier de sortie = public, aucune commande de build.
+Reglages Pages : liaison D1 nommee DB, variable secrete SECRET (longue chaine aleatoire).
