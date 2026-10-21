@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000">
+  <meta name="description" content="Retrouve l'arbre des rencontres du Championnat New Wave NEWWAV WRLD.">
+  <title>Arbre du tournoi | NEWWAV WRLD</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,800;1,900&display=swap">
+  <style>
+    :root{color-scheme:dark;--n:#000;--g:#1b1b1b;--g2:#6e6e6e;--r:#d4001a;--b:#fff;--f:"Montserrat","Arial Black",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+    *{box-sizing:border-box;margin:0}
+    html{background:var(--n)}
+    body{min-height:100vh;min-height:100dvh;color:var(--b);font:500 15px/1.5 var(--f);background:radial-gradient(34vmax 22vmax at 0% 8%,var(--g) 60%,transparent 61%),radial-gradient(30vmax 26vmax at 104% 30%,var(--g) 60%,transparent 61%),radial-gradient(36vmax 24vmax at 10% 70%,var(--g) 60%,transparent 61%),radial-gradient(30vmax 22vmax at 100% 96%,var(--g) 60%,transparent 61%),var(--n)}
+    :focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .top,main,.foot{max-width:1100px;margin:0 auto;padding-left:18px;padding-right:18px}
+    .top{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:4px}
+    .top img{width:42px;height:42px;border-radius:50%}
+    .navlink{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #444;border-radius:6px;color:#fff;text-decoration:none;font:800 12px/1 var(--f);font-style:italic;text-transform:uppercase}
+    h1{font:900 clamp(28px,7vw,46px)/.98 var(--f);font-style:italic;text-transform:uppercase;text-align:center;padding:18px 0 4px}
+    .sub{text-align:center;color:#bbb;margin:0 0 12px}
+    .tools{display:flex;align-items:center;justify-content:center;gap:8px;padding-bottom:12px}
+    .tools button{min-width:46px;min-height:44px;padding:0 12px;border:1px solid #555;border-radius:6px;background:#111;color:#fff;font:800 17px/1 var(--f);cursor:pointer}
+    .tools button:active{background:#333}
+    .tools .reset{font-size:11px;font-style:italic;text-transform:uppercase}
+    .zoomread{min-width:54px;text-align:center;color:#bbb;font-size:12px;font-variant-numeric:tabular-nums}
+    .viewport{position:relative;width:100%;height:calc(100dvh - 178px);min-height:300px;max-height:900px;margin:0 0 14px;background:transparent;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+    .viewport.dragging{cursor:grabbing}
+    .poster{position:absolute;top:0;left:0;max-width:none;height:auto;display:block;transform-origin:top left;will-change:transform;pointer-events:none;-webkit-user-drag:none}
+    .foot{padding-top:4px;padding-bottom:20px;text-align:center;font-size:12px;color:#888}
+    @media(max-width:600px){.viewport{height:auto;min-height:0;max-height:none;aspect-ratio:1024/1365}.sub{font-size:13px}.tools{padding-bottom:10px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <img src="img/logo.jpg" alt="NEWWAV WRLD" width="42" height="42">
+    <a class="navlink" href="https://newwavwrld.pages.dev/">Retour à l’accueil</a>
+  </header>
+  <main>
+    <h1>Arbre du tournoi</h1>
+    <p class="sub">Fais glisser pour parcourir l’arbre · Pince l’écran ou utilise les boutons pour zoomer</p>
+    <div class="tools" aria-label="Commandes de zoom">
+      <button type="button" id="zoom-out" aria-label="Dézoomer">−</button>
+      <span class="zoomread" id="zoom-level" aria-live="polite">100 %</span>
+      <button type="button" id="zoom-in" aria-label="Zoomer">+</button>
+      <button type="button" class="reset" id="zoom-reset">Tout voir</button>
+    </div>
+    <div class="viewport" id="viewport" role="region" aria-label="Arbre du tournoi, déplaçable et zoomable" tabindex="0">
+      <img class="poster" id="poster" src="img/arbre.jpeg" alt="Arbre du Championnat New Wave : rencontres, photos des artistes, vainqueurs et artistes éliminés barrés d’une croix rouge" draggable="false">
+    </div>
+  </main>
+  <footer class="foot">NEWWAV WRLD · Championnat New Wave</footer>
+  <script src="arbre.js" defer></script>
+</body>
+</html>
