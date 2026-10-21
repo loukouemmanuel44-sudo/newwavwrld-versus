@@ -12,5 +12,5 @@ export async function onRequestGet({request,env}){
         mon_vote:mon,resultats:mon&&r.show_results==="live"?await comptes(env.DB,r.id):null});
     }
     return json({ok:true,versus});
-  }catch(e){return json({ok:false,message:"Erreur serveur."},500)}
+  }catch(e){return json({ok:false,message:String(e)},500)}
 }
