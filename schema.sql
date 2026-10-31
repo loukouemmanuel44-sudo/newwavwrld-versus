@@ -31,6 +31,9 @@ INSERT OR IGNORE INTO artists(slug,name,photo) VALUES
 ('jeune-lion','JEUNE LION','/img/artistes/jeune-lion.jpg'),
 ('og-mahilet','OG MAHILET','/img/artistes/og-mahilet.jpg'),
 ('wantche','WANTCHE','/img/artistes/wantche.jpg');
-INSERT INTO versus(round,artist_a,artist_b,status,show_results) VALUES
-('Demi finale',(SELECT id FROM artists WHERE slug='dopelym'),(SELECT id FROM artists WHERE slug='jeune-lion'),'open','live'),
-('Demi finale',(SELECT id FROM artists WHERE slug='og-mahilet'),(SELECT id FROM artists WHERE slug='wantche'),'open','live');
+INSERT INTO versus(round,artist_a,artist_b,status,show_results)
+SELECT 'Finale',a.id,b.id,'open','live'
+FROM artists a JOIN artists b ON a.slug='dopelym' AND b.slug='wantche'
+WHERE NOT EXISTS(
+  SELECT 1 FROM versus v WHERE v.round='Finale' AND v.artist_a=a.id AND v.artist_b=b.id
+);
